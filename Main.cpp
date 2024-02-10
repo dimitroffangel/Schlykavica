@@ -58,7 +58,7 @@ int main()
 	{
 		String word;
 		std::cin >> word;
-		auto candidate = bayes.GetMaxCandidate(word, dictionary);
+		auto candidate = bayes.GetMaxCandidate(2, word, dictionary);
 		std::cout << candidate.m_Word << " it is found: " << candidate.m_Counter << '\n';
 	}
 
