@@ -14,12 +14,12 @@ public:
 		size_t m_Distance = 1024;
 	};
 
-	Candidate GetMaxCandidate(const String& word, Dictionary& dictionary)
+	Candidate GetMaxCandidate(const size_t maxEditDistance, const String& word, Dictionary& dictionary)
 	{
 		Dictionary editWords;
 		editWords[word] = 1;
 		Dictionary previousEditDictionary = editWords;
-		for (size_t currentDistance = 0; currentDistance < 2; ++currentDistance)
+		for (size_t currentDistance = 0; currentDistance < maxEditDistance; ++currentDistance)
 		{
 			for (const auto& currentWord : previousEditDictionary)
 			{
@@ -48,20 +48,11 @@ public:
 	}
 	
 private:
-	void GetCandidates(const String& word, Dictionary& candidates, const Dictionary& dictionary) const
-	{
-		
-	}
-
-	void GetEdits(const size_t editDistance, const String& word, Dictionary& editWords, const Dictionary& dictionary) const
-	{
-
-	}
-
 	void GetBaseEdits(const String& word, Dictionary& editWords, const Dictionary& dictionary) const
 	{
 		String currentWord;
 		std::unordered_set<String> usedWords;
+		
 		// inserts
 		for (size_t i = 0; i < word.size(); ++i)
 		{
