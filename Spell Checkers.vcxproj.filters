@@ -21,12 +21,24 @@
     <ClCompile Include="Bayes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NaiveSpellCheckerUnitTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UnitTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bayes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="precomp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NaiveSpellCheckerUnitTests.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UnitTests.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

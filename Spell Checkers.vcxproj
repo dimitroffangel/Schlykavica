@@ -133,10 +133,14 @@
   <ItemGroup>
     <ClCompile Include="Bayes.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="NaiveSpellCheckerUnitTests.cpp" />
+    <ClCompile Include="UnitTests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bayes.h" />
+    <ClInclude Include="NaiveSpellCheckerUnitTests.h" />
     <ClInclude Include="precomp.h" />
+    <ClInclude Include="UnitTests.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

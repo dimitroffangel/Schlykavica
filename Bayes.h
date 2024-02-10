@@ -9,18 +9,19 @@ public:
 
 	struct Candidate
 	{
-		String m_Word;
+		String m_Word = "";
 		size_t m_Counter = 0;
-		size_t m_Distance = 1024;
+		size_t m_Distance = INT_MAX;
 	};
 
 	Candidate GetMaxCandidate(const size_t maxEditDistance, const String& word, Dictionary& dictionary)
 	{
 		if (dictionary[word] > 0)
 		{
-			return Candidate{ word, dictionary[word] };
+			return Candidate{ word, dictionary[word], 0 };
 		}
 
+		Candidate candidate;
 		Dictionary editWords;
 		editWords[word] = 1;
 		Dictionary previousEditDictionary = editWords;
@@ -31,7 +32,6 @@ public:
 				GetBaseEdits(currentWord.first, editWords, dictionary);
 			}
 			
-			Candidate candidate;
 			for (auto& word : editWords)
 			{
 				if (candidate.m_Distance >= word.second && dictionary[word.first] > candidate.m_Counter)
@@ -42,12 +42,14 @@ public:
 				}
 			}
 
-			if (candidate.m_Distance != 1024)
+			if (candidate.m_Distance != INT_MAX)
 			{
 				return candidate;
 			}
 			previousEditDictionary = editWords;
 		}
+
+		return candidate;
 	}
 	
 private:
