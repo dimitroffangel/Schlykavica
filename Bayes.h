@@ -16,6 +16,11 @@ public:
 
 	Candidate GetMaxCandidate(const size_t maxEditDistance, const String& word, Dictionary& dictionary)
 	{
+		if (dictionary[word] > 0)
+		{
+			return Candidate{ word, dictionary[word] };
+		}
+
 		Dictionary editWords;
 		editWords[word] = 1;
 		Dictionary previousEditDictionary = editWords;
@@ -37,8 +42,6 @@ public:
 				}
 			}
 
-			const auto& foo = editWords["spelling"];
-			const auto & foo2 = dictionary["spelling"];
 			if (candidate.m_Distance != 1024)
 			{
 				return candidate;

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <algorithm>
 
 #include "precomp.h"
 #include "Bayes.h"
@@ -19,12 +20,14 @@ int main()
 		std::streamsize bytesRead = file.gcount();
 
 		String chunk{ buffer};
+		
 		if (!incompleteWord.empty())
 		{
 			chunk = incompleteWord + chunk;
 		}
 
 		size_t beginingOfWord = 0;
+		std::transform(chunk.begin(), chunk.end(), chunk.begin(), [](const char symbol) {return std::tolower(symbol);});
 		for (size_t i = 0; i < chunk.size(); ++i)
 		{
 			if (chunk[i] == ' ')
