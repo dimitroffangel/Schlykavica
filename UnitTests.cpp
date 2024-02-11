@@ -14,7 +14,7 @@ void UnitTests::Test()
 	ReadFileInput(dictionary);
 
 	TestNaiveSpellChecker(dictionary);
-	//TestBK_TreeChecker(dictionary);
+	TestBK_TreeChecker(dictionary);
 }
 
 void UnitTests::ReadFileInput(Dictionary& dictionary)
