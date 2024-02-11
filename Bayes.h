@@ -32,13 +32,13 @@ public:
 				GetBaseEdits(currentWord.first, editWords, dictionary);
 			}
 			
-			for (auto& word : editWords)
+			for (auto& currentWord : editWords)
 			{
-				if (candidate.m_Distance >= word.second && dictionary[word.first] > candidate.m_Counter)
+				if (candidate.m_Distance >= currentWord.second && dictionary[currentWord.first] > candidate.m_Counter)
 				{
-					candidate.m_Word = word.first;
-					candidate.m_Counter = dictionary[word.first];
-					candidate.m_Distance = word.second;
+					candidate.m_Word = currentWord.first;
+					candidate.m_Counter = dictionary[currentWord.first];
+					candidate.m_Distance = GetDistance(word, currentWord.first);
 				}
 			}
 

@@ -13,8 +13,8 @@ void UnitTests::Test()
 	Dictionary dictionary;
 	ReadFileInput(dictionary);
 
-	//TestNaiveSpellChecker(dictionary);
-	TestBK_TreeChecker(dictionary);
+	TestNaiveSpellChecker(dictionary);
+	//TestBK_TreeChecker(dictionary);
 }
 
 void UnitTests::ReadFileInput(Dictionary& dictionary)
