@@ -132,12 +132,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bayes.cpp" />
+    <ClCompile Include="BK_Tree.cpp" />
+    <ClCompile Include="BK_Tree_UnitTests.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="NaiveSpellCheckerUnitTests.cpp" />
     <ClCompile Include="UnitTests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bayes.h" />
+    <ClInclude Include="BK_Tree.h" />
+    <ClInclude Include="BK_Tree_UnitTests.h" />
     <ClInclude Include="NaiveSpellCheckerUnitTests.h" />
     <ClInclude Include="precomp.h" />
     <ClInclude Include="UnitTests.h" />

@@ -5,7 +5,7 @@
 #include <algorithm>
 
 #include "NaiveSpellCheckerUnitTests.h"
-
+#include "BK_Tree_UnitTests.h"
 
 
 void UnitTests::Test()
@@ -13,13 +13,20 @@ void UnitTests::Test()
 	Dictionary dictionary;
 	ReadFileInput(dictionary);
 
-	TestNaiveSpellChecker(dictionary);
+	//TestNaiveSpellChecker(dictionary);
+	TestBK_TreeChecker(dictionary);
 }
 
 void UnitTests::ReadFileInput(Dictionary& dictionary)
 {
 	std::fstream file("./words.txt", std::fstream::in);
 
+
+	//String word;
+	//while (file >> word)
+	//{
+	//	dictionary[word]++;
+	//}
 	String line;
 	const size_t bufferSize = 1024;
 	char buffer[bufferSize];
@@ -77,4 +84,18 @@ void UnitTests::TestNaiveSpellChecker(Dictionary& dictionary)
 	NaiveSpellCheckerUnitTests::WordCheck("./naive.txt", "futball", 3, dictionary);
 	NaiveSpellCheckerUnitTests::WordCheck("./naive.txt", "basketbal", 3, dictionary);
 	NaiveSpellCheckerUnitTests::WordCheck("./naive.txt", "fussball", 3, dictionary);
+}
+
+void UnitTests::TestBK_TreeChecker(Dictionary& dictionary)
+{
+	BK_Tree tree;
+	BK_Tree_UnitTests::CreateBK_Tree("/bk_tree.txt.", dictionary, tree);
+	BK_Tree_UnitTests::WordCheck("./bk_tree.txt", "speling", tree);
+	BK_Tree_UnitTests::WordCheck("./bk_tree.txt", "speking", tree);
+	BK_Tree_UnitTests::WordCheck("./bk_tree.txt", "specking", tree);
+	BK_Tree_UnitTests::WordCheck("./bk_tree.txt", "speaking", tree);
+	BK_Tree_UnitTests::WordCheck("./bk_tree.txt", "kombat", tree);
+	BK_Tree_UnitTests::WordCheck("./bk_tree.txt", "futball", tree);
+	BK_Tree_UnitTests::WordCheck("./bk_tree.txt", "basketbal", tree);
+	BK_Tree_UnitTests::WordCheck("./bk_tree.txt", "fussball", tree);
 }

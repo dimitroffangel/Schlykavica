@@ -1,5 +1,7 @@
 #include "UnitTests.h"
 
+#include "BK_Tree.h"
+#include <iostream>
 
 int main()
 {
